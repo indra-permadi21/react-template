@@ -7,30 +7,24 @@ function NavbarCenter() {
   /*********************/
   /*   Menu Sticky     */
   /*********************/
+  const [navSticky,setNavSticky] = useState(false)
+
   function windowScroll() {
-    const navbar = document.getElementById("topnav");
-    if (navbar != null) {
-      if (
-        document.body.scrollTop >= 50 ||
-        document.documentElement.scrollTop >= 50
-      ) {
-        navbar.classList.add("nav-sticky");
-      } else {
-        navbar.classList.remove("nav-sticky");
-      }
+
+    if(document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50){
+      setNavSticky(true)
+    } else {
+      setNavSticky(false)
     }
   }
 
-  useEffect(() => {
-    window.addEventListener("scroll", (ev) => {
-      ev.preventDefault();
-      windowScroll();
-    });
-  }, []);
+  window.addEventListener("scroll",windowScroll)
+
 
   return (
     <>
-      <nav id="topnav" className="defaultscroll is-sticky">
+      {/* <nav id="topnav" className="defaultscroll is-sticky"> */}
+      <nav id="topnav" className={navSticky ? "defaultScroll is-sticky nav-sticky" : "defaultScroll is-sticky"}>
         <div className="container relative">
           {/* Logo container*/}
           <a className="logo" href="index.html">
