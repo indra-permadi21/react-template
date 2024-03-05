@@ -7,24 +7,43 @@ function NavbarCenter() {
   /*********************/
   /*   Menu Sticky     */
   /*********************/
-  const [navSticky,setNavSticky] = useState(false)
+  const [navSticky, setNavSticky] = useState(false);
+  const [displayToggle, setDisplayToggle] = useState(false)
 
   function windowScroll() {
-
-    if(document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50){
-      setNavSticky(true)
+    if (
+      document.body.scrollTop >= 50 ||
+      document.documentElement.scrollTop >= 50
+    ) {
+      setNavSticky(true);
     } else {
-      setNavSticky(false)
+      setNavSticky(false);
     }
   }
 
-  window.addEventListener("scroll",windowScroll)
+  window.addEventListener("scroll", windowScroll);
 
+  function toggleMenu() {
+    document.getElementById("isToggle").classList.toggle("open");
+    var isOpen = document.getElementById("navigation");
+    if (isOpen.style.display === "block") {
+      isOpen.style.display = "none";
+    } else {
+      isOpen.style.display = "block";
+    }
+  }
 
   return (
     <>
       {/* <nav id="topnav" className="defaultscroll is-sticky"> */}
-      <nav id="topnav" className={navSticky ? "defaultScroll is-sticky nav-sticky" : "defaultScroll is-sticky"}>
+      <nav
+        id="topnav"
+        className={
+          navSticky
+            ? "defaultScroll is-sticky nav-sticky"
+            : "defaultScroll is-sticky"
+        }
+      >
         <div className="container relative">
           {/* Logo container*/}
           <a className="logo" href="index.html">
@@ -43,8 +62,7 @@ function NavbarCenter() {
           <div className="menu-extras">
             <div className="menu-item">
               {/* Mobile menu toggle*/}
-              {/* <a className="navbar-toggle" id="isToggle" onClick="toggleMenu()"> */}
-              <a className="navbar-toggle" id="isToggle">
+              <a className="navbar-toggle" id="isToggle" onClick={toggleMenu}>
                 <div className="lines">
                   <span />
                   <span />
@@ -90,34 +108,23 @@ function NavbarCenter() {
             {/* Navigation Menu*/}
             <ul className="navigation-menu nav-light">
               <li>
-                <a href="index.html" className="sub-menu-item">
+                <a href="/" className="sub-menu-item">
                   Home
                 </a>
               </li>
-              <li className="has-submenu parent-menu-item">
-                <a href="#">Docs</a>
-                <span className="menu-arrow" />
-                <ul className="submenu">
-                  <li>
-                    <a href="ui-components.html" className="sub-menu-item">
-                      Components{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="documentation.html" className="sub-menu-item">
-                      Documentation
-                    </a>
-                  </li>
-                  <li>
-                    <a href="widget.html" className="sub-menu-item">
-                      Widget
-                    </a>
-                  </li>
-                </ul>
+              <li>
+                <a href="/gallery" className="sub-menu-item">
+                  Page A
+                </a>
               </li>
               <li>
-                <a href="contact-one.html" className="sub-menu-item">
-                  Contact
+                <a href="/shows" className="sub-menu-item">
+                  Page B
+                </a>
+              </li>
+              <li>
+                <a href="/contactus" className="sub-menu-item">
+                  Page C
                 </a>
               </li>
             </ul>

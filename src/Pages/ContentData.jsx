@@ -3,7 +3,6 @@ import NavbarCenter from "../Component/Navbar/NavbarCenter";
 function ContentData() {
   return (
     <>
-    {/* <NavbarCenter/> */}
       {/* Start Hero */}
       <section className="relative table w-full py-36 lg:py-64 bg-[url('../../assets/images/event/bg.jpg')] bg-no-repeat bg-center bg-cover">
         <div className="absolute inset-0 bg-gradient-to-t from-indigo-600/90 to-fuchsia-600/90" />
