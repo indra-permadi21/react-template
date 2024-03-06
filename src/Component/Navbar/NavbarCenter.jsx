@@ -2,13 +2,14 @@ import FeatherIcon from "feather-icons-react";
 import { useEffect, useState } from "react";
 import logoDark from "../../assets/images/logo-dark.png";
 import logoLight from "../../assets/images/logo-light.png";
+import { Link } from "react-router-dom";
 
 function NavbarCenter() {
   /*********************/
   /*   Menu Sticky     */
   /*********************/
   const [navSticky, setNavSticky] = useState(false);
-  const [displayToggle, setDisplayToggle] = useState(false)
+  const [displayToggle, setDisplayToggle] = useState(false);
 
   function windowScroll() {
     if (
@@ -108,24 +109,24 @@ function NavbarCenter() {
             {/* Navigation Menu*/}
             <ul className="navigation-menu nav-light">
               <li>
-                <a href="/" className="sub-menu-item">
+                <Link to={`/`} className="sub-menu-item">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/gallery" className="sub-menu-item">
-                  Page A
-                </a>
+                <Link to={`/gallery`} className="sub-menu-item">
+                  Gallery
+                </Link>
               </li>
               <li>
-                <a href="/shows" className="sub-menu-item">
-                  Page B
-                </a>
+                <Link to={`/shows`} className="sub-menu-item">
+                  Shows
+                </Link>
               </li>
               <li>
-                <a href="/contactus" className="sub-menu-item">
-                  Page C
-                </a>
+                <Link to={`/contactus`} className="sub-menu-item">
+                  Contact Us
+                </Link>
               </li>
             </ul>
             {/*end navigation menu*/}
