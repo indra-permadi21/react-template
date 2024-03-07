@@ -8,7 +8,6 @@ function Root() {
     <>
       <NavbarMain />
       <section className="relative md:py-24 py-16">
-        
         <Outlet />
       </section>
     </>
